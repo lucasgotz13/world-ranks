@@ -24,7 +24,6 @@ export default async function Page({ params }: { params: { id: string } }) {
     const country = newarr[params.id];
     //@ts-ignore
     const countryCurrency = Object.values(country.currencies)[0].name;
-    console.log(country);
 
     return (
         <div>
