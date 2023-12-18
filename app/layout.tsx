@@ -22,14 +22,14 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={beVietnamPro.className}>
-                <ThemeProvider
+                {/* <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
                     enableSystem
                     disableTransitionOnChange
-                >
-                    {children}
-                </ThemeProvider>
+                > */}
+                {children}
+                {/* </ThemeProvider> */}
             </body>
         </html>
     );
