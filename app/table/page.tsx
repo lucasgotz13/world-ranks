@@ -1,7 +1,5 @@
-import { ModeToggle } from "@/components/ui/mode-toggle";
-import { Country, columns } from "./table/columns";
-import { DataTable } from "./table/data-table";
-import Header from "@/components/ui/header";
+import { Country, columns } from "./columns";
+import { DataTable } from "./data-table";
 
 function filterMap(arr: any, fields: any) {
     return arr.map((el: any) =>
@@ -24,12 +22,11 @@ async function getData(): Promise<Country[]> {
     return newarr;
 }
 
-export default async function Home() {
+export default async function DemoPage() {
     const data = await getData();
 
     return (
         <div>
-            <Header />
             <DataTable columns={columns} data={data} />
         </div>
     );
