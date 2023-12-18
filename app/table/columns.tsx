@@ -2,9 +2,10 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { ArrowUpDown } from "lucide-react";
+import Image from "next/image";
 
 export type Country = {
-    flag: string;
+    flags: string;
     name: string;
     population: number;
     area: number;
@@ -13,8 +14,23 @@ export type Country = {
 
 export const columns: ColumnDef<Country>[] = [
     {
-        accessorKey: "flag",
+        accessorKey: "flags.png",
         header: "Flag",
+        cell: ({ row }) => {
+            //@ts-ignore
+            const flags = row.original.flags.png;
+            return (
+                <div className="flex items-center">
+                    <Image
+                        width={75}
+                        height={100}
+                        className="rounded-md"
+                        src={flags}
+                        alt="flag"
+                    />
+                </div>
+            );
+        },
     },
     {
         accessorKey: "name.common",

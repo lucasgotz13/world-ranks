@@ -36,7 +36,9 @@ export function DataTable<TData, TValue>({
     columns,
     data,
 }: DataTableProps<TData, TValue>) {
-    const [sorting, setSorting] = React.useState<SortingState>([]);
+    const [sorting, setSorting] = React.useState<SortingState>([
+        { id: "population", desc: true },
+    ]);
     const [columnFilters, setColumnFilters] =
         React.useState<ColumnFiltersState>([]);
     const table = useReactTable({
@@ -56,7 +58,8 @@ export function DataTable<TData, TValue>({
 
     return (
         <div className="p-10">
-            <div className="flex items-center py-4">
+            <div className="flex items-center justify-between py-4">
+                <p className="text-[#6C727F] text-bold">Found 234 countries</p>
                 <Input
                     placeholder="Filter by name..."
                     value={
@@ -67,7 +70,7 @@ export function DataTable<TData, TValue>({
                         const value = event.target.value;
                         table.getColumn("name")?.setFilterValue(value);
                     }}
-                    className="max-w-sm"
+                    className="max-w-xs md:max-w-sm rounded-md"
                 />
             </div>
             <div className="rounded-md">
